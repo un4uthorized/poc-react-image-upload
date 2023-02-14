@@ -7,6 +7,9 @@ import Home from '@/app/page'
 
 
 describe('page.tsx', () => {
+    window.URL.createObjectURL = jest.fn();
+
+
     const server = setupServer(
         rest.post('/api/register', async (req, res, ctx) => {
             return res(
@@ -16,7 +19,10 @@ describe('page.tsx', () => {
     )
 
     beforeAll(() => server.listen());
-    afterAll(() => server.close());
+    afterAll(() => {
+        window.URL.createObjectURL.mockReset();
+        server.close()
+    });
     afterEach(() => server.resetHandlers());
 
     it('should render the page', async () => {

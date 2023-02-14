@@ -1,38 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+An integration test in React.js is a type of automated test that verifies the correct interaction and communication between different components of a React application. The purpose of integration tests is to verify that different parts of an application work together correctly and produce the expected results.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+The "if" statement, or "conditional rendering", in React is often used to render different components based on certain conditions. In an integration test, you may want to test that a certain component is rendered under a specific condition. For example, you may want to test that a "Login" component is rendered when a user is not logged in, and a "Dashboard" component is rendered when the user is logged in.
+
+To perform an integration test in React, you can use testing frameworks such as Jest and Enzyme. These frameworks allow you to create and run test cases that simulate user interaction with the application, and verify that the correct components are rendered and that they interact correctly with each other.
+
+Overall, integration tests are an important part of ensuring the quality and reliability of a React application, as they help to identify and prevent bugs and issues that may arise from the interactions between different components.
+
+**This poc aims to demonstrate a test using image upload**
+
+![poc](docs/images/poc.gif)
+
+Pre-requisites
+
+- Node.js
+- NPM
+- Git
+
+Steps to run the test
+
+- Clone the repository
+    
+    ```
+    git clone https://github.com/un4uthorized/poc-react-image-upload.git
+    ```
+
+- Install the dependencies
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Run the test
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm test
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- The test should pass
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+  PASS  src/__tests__/register.spec.tsx
+  page.tsx
+    ✓ should render the page (24 ms)
+    ✓ should register new user (106 ms)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.894 s, estimated 3 s
 
-## Learn More
+```
 
-To learn more about Next.js, take a look at the following resources:
+About Mock Service Worker
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Mock Service Worker (MSW) is a library for mocking server responses in client-side JavaScript tests. It intercepts requests made by the client to a server and returns mock data instead of actually making a request to the server. This allows developers to test their client-side code in isolation without relying on a real server or network connection. MSW can also be used to simulate different types of server responses, such as slow or error-prone responses, to ensure that the client-side code handles them correctly. MSW is often used in conjunction with testing libraries like Jest or Mocha, and can be integrated with various front-end frameworks and libraries, such as React or Vue.
